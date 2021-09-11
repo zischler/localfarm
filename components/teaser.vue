@@ -13,16 +13,11 @@
                         </svg>
                         <span>{{ farm.city }}</span>
                     </p>
-                    <p class="mt-3 text-base text-gray-500">{{ farm.description }}</p>
+                    <p class="mt-3 text-base text-gray-500">{{ farm.info_text.slice(0, 120) }}...</p>
                 </div>
             </div>
-            <div class="flex-1 bg-white p-6 flex flex-col justify-around">
-                <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
-                    <use xlink:href="#map-pin-line"></use>
-                </svg>
-                <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
-                    <use xlink:href="#map-pin-line"></use>
-                </svg>
+
+            <div class="flex-1 bg-white pb-6 px-6 flex flex-col justify-around">
                 <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
                     <use xlink:href="#map-pin-line"></use>
                 </svg>
@@ -30,3 +25,11 @@
         </a>
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        farms: Object
+    }
+}
+</script>
