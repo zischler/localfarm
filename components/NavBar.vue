@@ -48,6 +48,7 @@ export default {
             }
             if(obj.text === event){
                 obj.active = true
+                this.$emit('view', obj.text)
             } else {
                 obj.active = false
             }

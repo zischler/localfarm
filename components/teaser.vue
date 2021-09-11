@@ -29,7 +29,7 @@
 <script>
 export default {
     props: {
-        farms: Object
+        farms: Array
     }
 }
 </script>

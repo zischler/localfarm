@@ -1,41 +1,42 @@
 <template>
   <div>
-    <svg-symbols />
-    <vHeader />
-    <teaser :farms="farms" />
-    <NavBar />
+    <svg-symbols></svg-symbols>
+    <vHeader></vHeader>
+    <div>
+      <teaser v-if="currentView == 'Entdecken'" :farms="farms"></teaser>
+    </div>
+    <NavBar @view="changeView"></NavBar>
   </div>
 </template>
 
 <script>
 import VHeader from '~/components/vHeader.vue'
 import svgSymbols from '~/components/svgSymbols.vue'
-import teaser from '~/components/teaser.vue'
 import NavBar from '~/components/NavBar.vue'
+import teaser from '~/components/teaser.vue'
 
 export default {
-    components: { VHeader, svgSymbols, teaser, NavBar },
-    data() {
-        return {
-            farms: {}
-        }
-    },
-    async mounted () {
-        this.farms = await this.fetchFarmsData()
-    },
-    methods: {
-        async fetchFarmsData () {
-            let result = {}
-            await this.$axios.get(process.env.baseUrl)
-            .then(res => {
-                result = res.data
-                console.log(res);
-            })
-            .catch(error => {
-                console.error(error)
-            })
-            return result
-        }
+  components: { VHeader, svgSymbols, NavBar, teaser },
+  data() {
+    return {
+      currentView: 'Entdecken',
+      farms: []
     }
+  },
+  async mounted () {
+    this.farms = await this.fetchMockApi()
+  },
+  methods: {
+    async fetchMockApi () {
+      let result = {}
+      await this.$axios.get(process.env.baseUrl)
+        .then(response => result = response.data)
+        .catch(error => console.error(error))
+      return result
+    },
+    changeView(event) {
+      this.currentView = event
+    }
+  }
 }
 </script>
