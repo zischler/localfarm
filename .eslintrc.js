@@ -9,13 +9,12 @@ module.exports = {
         requireConfigFile: false
     },
     extends: [
-        'eslint:recommended',
         '@nuxtjs',
         'plugin:nuxt/recommended'
     ],
     plugins: [],
     // add your custom rules here
     rules: {
-        indent: ['error', 4]
+        indent: 'off'
     }
 }
