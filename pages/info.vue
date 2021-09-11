@@ -1,6 +1,6 @@
 <template>
   <div>
-    [map]
+    [info page - 1234]
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <svg-symbols></svg-symbols>
+    <svg-symbols />
     <FarmCard :farms="farms" />
   </div>
 </template>

@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <vHeader></vHeader>
-    <Nuxt />
-    <NavBar @view="changeView"></NavBar>
-  </div>
+    <div>
+        <svg-symbols />
+        <vHeader />
+        <Nuxt />
+        <NavBar />
+    </div>
 </template>
 
 <script>
@@ -13,16 +14,11 @@ import NavBar from '~/components/NavBar.vue'
 import FarmCard from '~/components/FarmCard.vue'
 
 export default {
-    components: { VHeader, svgSymbols, NavBar, FarmCard },
-    data() {
-        return {
-            currentView: 'Entdecken',
-        }
-    },
-    methods: {
-        changeView(event) {
-            this.currentView = event
-        }
+    components: { 
+        VHeader, 
+        svgSymbols, 
+        NavBar, 
+        FarmCard
     }
 }
 </script>
