@@ -1,20 +1,36 @@
 <template>
-	<GmapMap
-	:center="center"
-	:zoom="13"
-	map-type-id="terrain"
-	class="w-full h-screen"
-	ref="mapRef"
-	>
-	<GmapMarker
-		:key="index"
-		v-for="(m, index) in markers"
-		:position="m.position"
-		:clickable="true"
-		:draggable="true"
-		@click="toggleInfoWindow(m)"
-	/>
-	</GmapMap>
+	<div>
+		<GmapMap
+		:center="center"
+		:zoom="13"
+		map-type-id="terrain"
+		class="w-full h-screen"
+		ref="mapRef"
+		:options="{
+			zoomControl: true,
+			mapTypeControl: false,
+			scaleControl: false,
+			streetViewControl: false,
+			rotateControl: false,
+			fullscreenControl: false,
+			disableDefaultUi: false
+		}">
+			<GmapMarker
+				:key="index"
+				v-for="(m, index) in markers"
+				ref="mapMarker"
+				:position="m.position"
+				:clickable="true"
+				:draggable="true"
+				@click="toggleInfoWindow(m, $event)"
+			/>
+		</GmapMap>
+		<div ref="infoWindow" v-show="showInfo" class="absolute w-full">
+			<h3>{{infoTitle}}</h3>
+			<p>{{infoText}}</p>
+			Teaser
+		</div>
+	</div>
 </template>
 
 <script>
@@ -22,12 +38,12 @@ export default {
 	data() {
 		return {
 			showInfo: false,
+			infoTitle: "",
+			infoText: "",
 		}
 	},
 	mounted() {
 		this.$refs.mapRef.$el.style.height = (window.innerHeight - this.$refs.mapRef.$el.getBoundingClientRect().top) + "px";
-		console.log(window.height - this.$refs.mapRef.$el.getBoundingClientRect().top);
-		console.log(this.$refs.mapRef.$el.style.height);
 		this.locateGeoLocation();
 	},
 	props: {
@@ -35,12 +51,15 @@ export default {
 		markers: Array
 	},
 	methods: {
-		toggleInfoWindow(marker) {
+		toggleInfoWindow(marker, e) {
 			this.$refs.mapRef.$mapPromise.then((map) => {
 				map.panTo(marker.position)
 			});
+			this.$refs.infoWindow.style.left = e.domEvent.target.getBoundingClientRect().left + "px";
+			this.$refs.infoWindow.style.bottom = e.domEvent.target.getBoundingClientRect().top + "px";
+			this.infoTitle = marker.title;
+			this.infoText = marker.text;
 			this.showInfo = true;
-			console.log(marker.title);
 		},
 
 		locateGeoLocation: function() {
