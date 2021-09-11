@@ -4,15 +4,15 @@
               <div>
                 <svg 
                     class="mx-auto"
-                    width="43"
-                    height="38"
-                    viewBox="0 0 43 38"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 25 25"
                     preserveAspectRatio="xMinYMax"
                 >
                     <use v-bind:xlink:href="svgHref"></use>
                 </svg>
               </div>
-              <p>{{obj.text}}</p>
+              <p class="mt-1 text-xs">{{ obj.text }}</p>
         </div>
   </li>
 </template>

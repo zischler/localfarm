@@ -1,7 +1,9 @@
 <template>
-    <ul class="grid grid-cols-4 gap-2">
-        <li is="NavItem" v-for="obj,index of objs" :key="obj.text" :obj="obj" @clicked="changeToActive($event, index)"></li>
-    </ul>
+    <div class="fixed bottom-0 bg-white w-full">
+        <ul class="grid grid-cols-4 gap-2 p-2 max-w-5xl mx-auto">
+            <li is="NavItem" v-for="obj,index of objs" :key="obj.text" :obj="obj" @clicked="changeToActive($event, index)"></li>
+        </ul>
+    </div>
 </template>
 
 <script>
