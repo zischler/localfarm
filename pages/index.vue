@@ -1,37 +1,41 @@
 <template>
   <div>
-    <svg-symbols></svg-symbols>
-    <vHeader></vHeader>
-    <div class="my-6 p-4 rounded bg-gray-200 border w-1/3 text-center mx-auto">
-      <h1 class="text-2xl">Localfarm - Basel Hack 2021</h1>
-    </div>
-    <NavBar></NavBar>
+    <svg-symbols />
+    <vHeader />
+    <teaser :farms="farms" />
+    <NavBar />
   </div>
 </template>
 
 <script>
 import VHeader from '~/components/vHeader.vue'
 import svgSymbols from '~/components/svgSymbols.vue'
+import teaser from '~/components/teaser.vue'
 import NavBar from '~/components/NavBar.vue'
 
 export default {
-  components: { VHeader, svgSymbols, NavBar },
-  data() {
-    return {
-      farmData: {}
+    components: { VHeader, svgSymbols, teaser, NavBar },
+    data() {
+        return {
+            farms: {}
+        }
+    },
+    async mounted () {
+        this.farms = await this.fetchFarmsData()
+    },
+    methods: {
+        async fetchFarmsData () {
+            let result = {}
+            await this.$axios.get(process.env.baseUrl)
+            .then(res => {
+                result = res.data
+                console.log(res);
+            })
+            .catch(error => {
+                console.error(error)
+            })
+            return result
+        }
     }
-  },
-  async mounted () {
-    this.farmData = await this.fetchMockApi()
-  },
-  methods: {
-    async fetchMockApi () {
-      let result = {}
-      await this.$axios.get(process.env.baseUrl)
-        .then(response => result = response)
-        .catch(error => console.error(error))
-      return result
-    }
-  }
 }
 </script>

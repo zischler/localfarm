@@ -49,6 +49,6 @@ export default {
   build: {
   },
   env: {
-    baseUrl: 'https://my.api.mockaroo.com/farms.json?key=96c0af00'
+    baseUrl: 'https://my.api.mockaroo.com/farms.json?key=37aa94e0'
   }
 }
