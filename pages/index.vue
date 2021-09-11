@@ -5,5 +5,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    async fetchMockApi () {
+      await this.$axios.get(process.env.baseUrl)
+        .then(response => console.log(response))
+        .catch(error => console.error(error))
+    }
+  }
+}
 </script>

@@ -42,9 +42,13 @@ export default {
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+  },
+  env: {
+    baseUrl: 'https://my.api.mockaroo.com/farms.json?key=96c0af00'
   }
 }
