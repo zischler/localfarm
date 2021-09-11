@@ -3,7 +3,7 @@
     <svg-symbols></svg-symbols>
     <vHeader></vHeader>
     <div>
-      <teaser v-if="currentView == 'Entdecken'" :farms="farms"></teaser>
+      <FarmCard v-if="currentView == 'Entdecken'" :farms="farms"></FarmCard>
     </div>
     <NavBar @view="changeView"></NavBar>
   </div>
@@ -13,10 +13,10 @@
 import VHeader from '~/components/vHeader.vue'
 import svgSymbols from '~/components/svgSymbols.vue'
 import NavBar from '~/components/NavBar.vue'
-import teaser from '~/components/teaser.vue'
+import FarmCard from '~/components/FarmCard.vue'
 
 export default {
-  components: { VHeader, svgSymbols, NavBar, teaser },
+  components: { VHeader, svgSymbols, NavBar, FarmCard },
   data() {
     return {
       currentView: 'Entdecken',
