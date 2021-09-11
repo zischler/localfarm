@@ -47,7 +47,29 @@ export default {
 
   //active class nuxt router / link
   router: {
-    linkActiveClass: 'active-link text-red-500'
+    linkActiveClass: 'active-link text-red-500',
+    routes: [
+      {
+          name: "Entdecken",
+          path: '/',
+          component: 'pages/entdecken.vue'
+      },
+      {
+          name: "Karte",
+          path: '/map',
+          component: 'pages/map.vue'
+      },
+      {
+          name: "Favoriten",
+          path: '/favorites',
+          component: 'pages/favorites.vue'
+      },
+      {
+          name: "Infos",
+          path: '/info',
+          component: 'pages/infos.vue'
+      }
+    ]
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

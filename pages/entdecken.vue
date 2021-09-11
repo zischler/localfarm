@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import FarmCard from '~/components/FarmCard.vue'
+// import FarmCard from '~/components/FarmCard.vue'
 
 export default {
     data() {
