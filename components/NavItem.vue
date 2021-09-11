@@ -1,20 +1,14 @@
 <template>
-  <li class="text-center">
-        <div @click="$emit('clicked', obj.text)">
-              <div>
-                <svg 
-                    class="mx-auto"
-                    width="25"
-                    height="25"
-                    viewBox="0 0 25 25"
-                    preserveAspectRatio="xMinYMax"
-                >
-                    <use v-bind:xlink:href="svgHref"></use>
-                </svg>
-              </div>
-              <p :style="pStyle" class="mt-1 text-xs">{{ obj.text }}</p>
+    <NuxtLink :to="obj.path" class="text-center">
+        <div>
+            <svg class="mx-auto" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMinYMax">
+                <use v-bind:xlink:href="svgHref"></use>
+            </svg>
         </div>
-  </li>
+        <div @click="$emit('clicked', obj.text)">
+            <p :style="pStyle" class="mt-1 text-xs">{{ obj.text }}</p>  
+        </div>
+    </NuxtLink>
 </template>
 
 <script>
