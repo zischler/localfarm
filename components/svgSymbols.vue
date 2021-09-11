@@ -110,7 +110,7 @@
         />
       </symbol>
       <symbol
-        id="map"
+        id="karte"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -299,7 +299,7 @@
         />
       </symbol>
       <symbol
-        id="house"
+        id="infos"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -336,7 +336,7 @@
         />
       </symbol>
       <symbol
-        id="heart"
+        id="favoriten"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
