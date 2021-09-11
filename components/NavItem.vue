@@ -12,7 +12,7 @@
                     <use v-bind:xlink:href="svgHref"></use>
                 </svg>
               </div>
-              <p class="mt-1 text-xs">{{ obj.text }}</p>
+              <p :style="pStyle" class="mt-1 text-xs">{{ obj.text }}</p>
         </div>
   </li>
 </template>
@@ -27,6 +27,13 @@ export default {
                 svg = svg + "-active"
             }
             return svg
+        },
+        pStyle() {
+            if(this.obj.active) {
+                return {color: '#FF5470'}
+            } else {
+                return {color: '#000000'}
+            }
         }
     }
 }
