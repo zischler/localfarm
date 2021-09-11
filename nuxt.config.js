@@ -44,11 +44,16 @@ export default {
   axios: {
   },
 
+  //active class nuxt router / link
+  router: {
+    linkActiveClass: 'active-link text-red-500'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: [/^vue2-google-maps($|\/)/]
   },
   env: {
-    baseUrl: 'https://my.api.mockaroo.com/farms.json?key=96c0af00'
+    baseUrl: 'https://my.api.mockaroo.com/farms.json?key=37aa94e0'
   }
 }

@@ -2901,7 +2901,7 @@ core-js-compat@^3.12.1, core-js-compat@^3.14.0, core-js-compat@^3.16.0:
     browserslist "^4.17.0"
     semver "7.0.0"
 
-core-js@^2.4.0, core-js@^2.6.5:
+core-js@^2.6.5:
   version "2.6.12"
   resolved "https://registry.npmjs.org/core-js/-/core-js-2.6.12.tgz"
   integrity sha512-Kb2wC0fvsWfQrgk8HU5lW6U/Lcs8+9aaYcy4ZFc6DDlo4nZ7n70dEgE5rtR0oG6ufKDUnrwfWL1mXR5ljDatrQ==
@@ -6233,7 +6233,9 @@ p-locate@^3.0.0:
   resolved "https://registry.npmjs.org/p-locate/-/p-locate-3.0.0.tgz"
   integrity sha512-x+12w/To+4GFfgJhBEpiDcLozRJGegY+Ei7/z0tSLkMmxGZNybVMSfWj9aJn8Z5Fc7dBUNJOOVgPv2H7IwulSQ==
   dependencies:
-    p-limit "^2.0.0"
+    copy-descriptor "^0.1.0"
+    define-property "^0.2.5"
+    kind-of "^3.0.3"
 
 p-locate@^4.1.0:
   version "4.1.0"
