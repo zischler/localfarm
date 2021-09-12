@@ -16,7 +16,7 @@
             </div>
             <div class="flex items-start justify-center">
                 <svg @click.prevent="callFavorites()" class="mx-auto fill-current stroke-current text-black" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMinYMax">
-                    <use v-bind:xlink:href="'#favoriten'"></use>
+                    <use v-bind:xlink:href="svgId"></use>
                 </svg>
             </div>
         </div>
@@ -42,6 +42,14 @@ export default {
     },
     mounted() {
         this.loadLocalStorage()
+    },
+    computed: {
+        svgId () {
+            if (this.favorite) {
+                return '#favoriten' + '-active'
+            }
+            return '#favoriten'
+        }
     },
     methods: {
         loadLocalStorage() {
