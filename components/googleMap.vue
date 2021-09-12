@@ -26,10 +26,8 @@
 				@click="toggleInfoWindow(m, $event)"
 			/>
 		</GmapMap>
-		<div ref="infoWindow" v-show="showInfo" class="absolute w-full">
-			<h3>{{infoTitle}}</h3>
-			<p>{{infoText}}</p>
-			Teaser
+		<div ref="infoWindow" v-show="showInfo" class="absolute top-16 left-1/2 w-full max-w-md transform -translate-x-1/2">
+        	<FarmCard :farm="selectedFarm" :key="selectedFarm.id" :is-popup="true" @close="showInfo = false"/>
 		</div>
 	</div>
 </template>
@@ -39,8 +37,7 @@ export default {
 	data() {
 		return {
 			showInfo: false,
-			infoTitle: "",
-			infoText: "",
+			selectedFarm: {},
 		}
 	},
 	mounted() {
@@ -55,12 +52,8 @@ export default {
 		toggleInfoWindow(marker, e) {
 			this.$refs.mapRef.$mapPromise.then((map) => {
 				map.panTo(marker.position)
-			}).then(() => {
-				this.$refs.infoWindow.style.left = e.domEvent.target.getBoundingClientRect().left + "px";
-				this.$refs.infoWindow.style.bottom = e.domEvent.target.getBoundingClientRect().top + "px";
 			});
-			this.infoTitle = marker.title;
-			this.infoText = marker.text;
+			this.selectedFarm = marker.farm;
 			this.showInfo = true;
 		},
 

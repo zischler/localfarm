@@ -1,5 +1,5 @@
 <template>
-    <a href="#" class="my-8 flex flex-col rounded-lg shadow-lg overflow-hidden border border-gray-200">
+    <a href="#" class="my-8 flex flex-col rounded-lg shadow-lg overflow-hidden border border-gray-200 relative">
         <div class="flex-shrink-0">
             <img class="h-48 w-full object-cover" :src="farm.images" alt="">
         </div>
@@ -12,9 +12,9 @@
                     </svg>
                     <span>{{ farm.city }}</span>
                 </p>
-                <p class="mt-3">{{ farm.info_text.slice(0, 120) }}...</p>
+                <p class="mt-3" v-if="farm.content_text">{{ farm.content_text.slice(0, 120) }}...</p>
             </div>
-            <div class="flex items-start justify-center">
+            <div class="flex items-start justify-center" v-if="!isPopup">
                 <svg @click="saveToFavorites()" class="mx-auto fill-current stroke-current text-black" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMinYMax">
                     <use v-bind:xlink:href="'#favoriten'"></use>
                 </svg>
@@ -26,18 +26,27 @@
                 <use :xlink:href="'#'+farm.reachability"></use>
             </svg>
         </div>
+        <button class="absolute top-4 right-4" @click="closeTeaser()" v-if="isPopup">
+            <svg width="30" height="30" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
+                <use xlink:href="#close"></use>
+            </svg>
+        </button>
     </a>
 </template>
 
 <script>
 export default {
+    props: {
+        farm: Object,
+        isPopup: Boolean
+    },
     methods: {
         saveToFavorites () {
             localStorage.setItem('favorites', [item.id])
+        },
+        closeTeaser () {
+            this.$emit('close');
         }
-    },
-    props: {
-        farm: Object
     }
 }
 </script>

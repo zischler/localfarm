@@ -590,6 +590,11 @@
           stroke-linejoin="round"
         />
       </symbol>
+      <symbol id="close" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.8098 28.4125C23.4372 28.4125 28.8098 23.0399 28.8098 16.4125C28.8098 9.78506 23.4372 4.41248 16.8098 4.41248C10.1824 4.41248 4.80981 9.78506 4.80981 16.4125C4.80981 23.0399 10.1824 28.4125 16.8098 28.4125Z" fill="white" stroke="#FF5470" stroke-width="2" stroke-miterlimit="10"/>
+        <path d="M20.8098 12.4125L12.8098 20.4125" stroke="#FF5470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20.8098 20.4125L12.8098 12.4125" stroke="#FF5470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </symbol>
     </defs>
   </svg>
 </template>
