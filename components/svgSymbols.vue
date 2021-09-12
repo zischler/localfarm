@@ -138,7 +138,7 @@
         />
       </symbol>
       <symbol
-        id="map-active"
+        id="karte-active"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -313,7 +313,7 @@
         />
       </symbol>
       <symbol
-        id="house-active"
+        id="infos-active"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -350,7 +350,7 @@
         />
       </symbol>
       <symbol
-        id="heart-active"
+        id="favoriten-active"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -422,7 +422,7 @@
         />
       </symbol>
       <symbol
-        id="compass-active"
+        id="entdecken-active"
         viewBox="0 0 32 32"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
