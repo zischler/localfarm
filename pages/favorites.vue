@@ -1,7 +1,12 @@
 <template>
   <div>
         <div class="max-w-5xl w-full h-full mx-auto px-4 pb-12">
-            <FarmCard v-for="farm in farms" :farm="farm" :key="farm.id" />
+            <div v-show="farms.length > 0" class="my-4">
+              <FarmCard v-for="farm in farms" :farm="farm" :key="farm.id" />
+            </div>
+            <div v-show="farms.length < 1" class="py-4 rounded-full px-12 border my-8 bg-red-400 border border-red-500">
+              <h2 class="text-2xl text-white">Keine Favoriten vorhanden</h2>
+            </div>
         </div>
   </div>
 </template>
@@ -26,7 +31,6 @@ export default {
     this.favoritesList.forEach(i => {
       this.oldFarms.forEach(b => {
         if(i == b.id) {
-          console.log("YA")
           list2.push(b)
         }
       })

@@ -36,7 +36,6 @@ export default {
             if(event.length > 0) {
                 this.farms = event
             } else {
-                console.log("here");
                 this.farms = this.oldFarms
             }
         }
