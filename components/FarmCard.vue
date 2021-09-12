@@ -40,6 +40,7 @@
 export default {
     props: {
         farm: Object,
+        isPopup: Boolean
     },
     data() {
         return {
@@ -94,12 +95,9 @@ export default {
                 this.loadLocalStorage()
             }
         },
-        isPopup: Boolean
-    },
-    methods: {
-        closeTeaser () {
+                closeTeaser () {
             this.$emit('close');
         }
-    }
+    },
 }
 </script>
