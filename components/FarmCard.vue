@@ -1,11 +1,13 @@
 <template>
-    <a href="#" class="my-8 flex flex-col rounded-lg shadow-lg overflow-hidden border border-gray-200 relative">
-        <div class="flex-shrink-0">
+    <div class="flex flex-col rounded-lg shadow-lg overflow-hidden border border-gray-200 my-8 relative">
+        <a :href="'/detail/'+farm.id" class="flex-shrink-0">
             <img class="h-48 w-full object-cover" :src="farm.images" alt="">
-        </div>
+        </a>
         <div class="bg-white p-6 flex flex-row justify-between">
             <div class="flex flex-col">
-                <h1 class="text-xl mb-2 font-semibold text-gray-900">{{ farm.title }}</h1>
+                <a :href="'/detail/'+farm.id">
+                    <h1 class="text-xl mb-2 font-semibold text-gray-900">{{ farm.title }}</h1>
+                </a>
                 <p class="text-sm font-medium text-gray-500 flex">
                     <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
                         <use xlink:href="#map-pin-line"></use>
@@ -26,12 +28,12 @@
                 <use :xlink:href="'#'+farm.reachability"></use>
             </svg>
         </div>
-        <button class="absolute top-4 right-4" @click="closeTeaser()" v-if="isPopup">
+        <button class="absolute top-4 right-4 z-50" @click="closeTeaser()" v-if="isPopup">
             <svg width="30" height="30" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
                 <use xlink:href="#close"></use>
             </svg>
         </button>
-    </a>
+    </div>
 </template>
 
 <script>

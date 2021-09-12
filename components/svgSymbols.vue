@@ -574,18 +574,18 @@
       >
         <path
           d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z"
-          stroke="black"
+          stroke="currentColor"
           stroke-miterlimit="10"
         />
         <path
           d="M10.4734 12.6516L13.125 10L10.4734 7.34836"
-          stroke="black"
+          stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M6.875 10H13.125"
-          stroke="black"
+          stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
         />

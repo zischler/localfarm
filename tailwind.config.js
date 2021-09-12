@@ -1,3 +1,6 @@
+
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
     theme: {
         extend: {
@@ -9,7 +12,10 @@ module.exports = {
                 'f-green-light': '#60F7CA',
                 'f-red': '#FF5470',
                 'f-red-light': '#FFA1B0',
-            }
+            },
+            fontFamily: {
+                sans: ['Comfortaa', ...defaultTheme.fontFamily.sans],
+            },
         }
     }
 }
