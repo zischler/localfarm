@@ -17,7 +17,7 @@ export default {
             let marker = {};
             marker.position = {lat: farm.lat, lng: farm.long};
             marker.title = farm.title;
-            marker.text = farm.content_text;
+            marker.farm = farm;
             this.markers.push(marker);
         }
     },
