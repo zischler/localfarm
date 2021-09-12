@@ -9,23 +9,3 @@
     </div>
 </template>
 
-<script>
-// import NavItem from '~/components/NavItem.vue'
-export default {
-    // components: { NavItem },
-    computed: {
-        routes: function () {
-            return this.$router.getRoutes()
-        }
-        // routes () {
-        //     return this.$router.getRoutes()
-        // }
-    },
-    mounted () {
-        console.log(this.$route)
-    }
-}
-</script>
-
-<style>
-</style>
