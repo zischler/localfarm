@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="mb-16">
         <svg-symbols />
         <vHeader />
         <Nuxt />
