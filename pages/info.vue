@@ -2,7 +2,7 @@
     <div class="max-w-5xl w-full h-full mx-auto px-4 pb-12">
         <div class="my-4">
             <h1 class="text-2xl">Weitere Informationen</h1>
-            <p class="mt-4">
+            <p class="mt-3">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam 
                 nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam 
                 erat, sed diam voluptua. At vero eos et accusam.
