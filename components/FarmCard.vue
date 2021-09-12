@@ -15,7 +15,7 @@
                 <p class="mt-3">{{ farm.info_text.slice(0, 120) }}...</p>
             </div>
             <div class="flex items-start justify-center">
-                <svg @click="saveToFavorites()" class="mx-auto fill-current stroke-current text-black" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMinYMax">
+                <svg @click.prevent="callFavorites()" class="mx-auto fill-current stroke-current text-black" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMinYMax">
                     <use v-bind:xlink:href="'#favoriten'"></use>
                 </svg>
             </div>
@@ -31,13 +31,53 @@
 
 <script>
 export default {
-    methods: {
-        saveToFavorites () {
-            localStorage.setItem('favorites', [item.id])
-        }
-    },
     props: {
-        farm: Object
+        farm: Object,
+    },
+    data() {
+        return {
+            favorite: false,
+            favoritesList: []
+            }
+    },
+    mounted() {
+        this.loadLocalStorage()
+    },
+    methods: {
+        loadLocalStorage() {
+            let storage = JSON.parse(localStorage.getItem('favorites'))
+            if(storage) {
+                this.favoritesList = storage
+                if(storage.includes(this.farm.id)) {
+                    this.favorite = true
+                } else {
+                    this.favorite = false
+                }
+                
+            } else {
+                let emptyList = JSON.stringify([])
+                localStorage.setItem('favorites', emptyList)
+                this.favoritesList = JSON.parse(emptyList)
+            }
+            
+        },
+        callFavorites() {
+            // add to local stoarge
+            if(!this.favorite) {
+                let list = this.favoritesList
+                list.push(this.farm.id)
+                let stringfied = JSON.stringify(list)
+                localStorage.setItem('favorites', stringfied)
+                this.loadLocalStorage()
+            } else {
+                let list = this.favoritesList
+                let index = list.indexOf(this.farm.id)
+                list.splice(index,1)
+                let stringfied = JSON.stringify(list)
+                localStorage.setItem('favorites', stringfied)
+                this.loadLocalStorage()
+            }
+        }
     }
 }
 </script>
