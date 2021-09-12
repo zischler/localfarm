@@ -1,6 +1,5 @@
 <template>
     <div>
-        <svg-symbols />
         <div class="max-w-5xl w-full h-full mx-auto px-4 pb-12">
             <FarmCard v-for="farm in farms" :farm="farm" :key="farm.id" />
         </div>
