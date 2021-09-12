@@ -1,6 +1,8 @@
 <template>
   <div>
     <svg-symbols />
+    <SearchFilter :farms="farms" @result="changeFarms"/>
+
     <div class="max-w-5xl w-full h-full mx-auto px-4 pb-12">
         <FarmCard v-for="farm in farms" :farm="farm" :key="farm.id" />
     </div>
@@ -13,7 +15,8 @@
 export default {
     data() {
         return {
-            farms: []
+            farms: [],
+            oldFarms: []
         }
     },
     async mounted () {
@@ -30,6 +33,15 @@ export default {
                 console.error(error)
             })
             return result
+        },
+        changeFarms(event){
+            this.oldFarms = this.farms
+            if(event.length > 0) {
+                this.farms = event
+            } else {
+                console.log("here");
+                this.farms = this.oldFarms
+            }
         }
     }
 }

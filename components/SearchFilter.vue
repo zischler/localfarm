@@ -52,7 +52,7 @@
             class="w-full absolute bg-white max-w-xs h-mx mx-4 p-4 border-2 rounded-md border-f-green"
             style="background-color:white"
         >
-            <select class="dropdown w-full px-6 py-2" name="location" id="location" v-model="location">
+            <select @input="log" class="dropdown w-full px-6 py-2" name="location" id="location" v-model="location">
                 <option value="">Orte auswählen</option>
                 <option value="Liestal">Liestal</option>
                 <option value="Laufen">Laufen</option>
@@ -81,7 +81,7 @@
                 >
                     <use xlink:href="#walk"></use>
                 </svg>
-                <input type="checkbox" id="wandern" name="wandern" v-model="wandern" />
+                <input @change="log" type="checkbox" id="walk" name="walk" v-model="walk" />
             </div>
             <div class="flex">
                 <small>Fahrzeug</small>
@@ -94,7 +94,7 @@
                 >
                     <use xlink:href="#car"></use>
                 </svg>
-                <input type="checkbox" id="car" name="car" v-model="car"/>
+                <input @change="log" type="checkbox" id="car" name="car" v-model="car"/>
             </div>
 
             <div class="flex">
@@ -108,7 +108,7 @@
                 >
                     <use xlink:href="#bicycle"></use>
                 </svg>
-                <input type="checkbox" id="bicycle" name="bicycle"  v-model="bicycle"/>
+                <input @change="log" type="checkbox" id="bicycle" name="bicycle"  v-model="bicycle"/>
             </div>
         </div>
     </div>
@@ -121,15 +121,24 @@ export default {
             isActive: false,
             isActiveSearch: false,
             searchValue: "",
-            wandern: false,
+            walk: false,
             car: false,
             bicycle: false,
             location: ""
         };
     },
+    props: ['farms'],
     methods: {
         log(event) {
-            console.log(this.location)
+            let filterBy = (farm) => {
+                if (this.car == true) return farm.reachability === "car"
+                if (this.bicycle == true) return farm.reachability === "bicycle"
+                if (this.walk == true) return farm.reachability === "walk"
+            }
+            let result = this.farms.filter(farm => filterBy(farm) )
+        
+            this.$emit('result', result)
+            
         }
     }
 };
