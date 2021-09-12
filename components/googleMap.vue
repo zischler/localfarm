@@ -22,6 +22,7 @@
 				:position="m.position"
 				:clickable="true"
 				:draggable="true"
+				:title="m.title"
 				@click="toggleInfoWindow(m, $event)"
 			/>
 		</GmapMap>
@@ -54,9 +55,10 @@ export default {
 		toggleInfoWindow(marker, e) {
 			this.$refs.mapRef.$mapPromise.then((map) => {
 				map.panTo(marker.position)
+			}).then(() => {
+				this.$refs.infoWindow.style.left = e.domEvent.target.getBoundingClientRect().left + "px";
+				this.$refs.infoWindow.style.bottom = e.domEvent.target.getBoundingClientRect().top + "px";
 			});
-			this.$refs.infoWindow.style.left = e.domEvent.target.getBoundingClientRect().left + "px";
-			this.$refs.infoWindow.style.bottom = e.domEvent.target.getBoundingClientRect().top + "px";
 			this.infoTitle = marker.title;
 			this.infoText = marker.text;
 			this.showInfo = true;
