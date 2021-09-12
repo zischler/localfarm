@@ -49,7 +49,7 @@
      
         <div
         v-if="isActive"
-            class="w-full absolute bg-white max-w-xs h-mx mx-4 p-4 border-2 rounded-md border-f-green"
+            class="w-full absolute z-50 bg-white max-w-xs h-mx mx-4 p-4 border-2 rounded-md border-f-green"
             style="background-color:white"
         >
             <select @input="log" class="dropdown w-full px-6 py-2" name="location" id="location" v-model="location">
