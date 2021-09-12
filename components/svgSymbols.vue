@@ -574,21 +574,26 @@
       >
         <path
           d="M10 17.5C14.1421 17.5 17.5 14.1421 17.5 10C17.5 5.85786 14.1421 2.5 10 2.5C5.85786 2.5 2.5 5.85786 2.5 10C2.5 14.1421 5.85786 17.5 10 17.5Z"
-          stroke="black"
+          stroke="currentColor"
           stroke-miterlimit="10"
         />
         <path
           d="M10.4734 12.6516L13.125 10L10.4734 7.34836"
-          stroke="black"
+          stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
         <path
           d="M6.875 10H13.125"
-          stroke="black"
+          stroke="currentColor"
           stroke-linecap="round"
           stroke-linejoin="round"
         />
+      </symbol>
+      <symbol id="close" viewBox="0 0 33 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.8098 28.4125C23.4372 28.4125 28.8098 23.0399 28.8098 16.4125C28.8098 9.78506 23.4372 4.41248 16.8098 4.41248C10.1824 4.41248 4.80981 9.78506 4.80981 16.4125C4.80981 23.0399 10.1824 28.4125 16.8098 28.4125Z" fill="white" stroke="#FF5470" stroke-width="2" stroke-miterlimit="10"/>
+        <path d="M20.8098 12.4125L12.8098 20.4125" stroke="#FF5470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M20.8098 20.4125L12.8098 12.4125" stroke="#FF5470" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
       </symbol>
     </defs>
   </svg>
