@@ -3,7 +3,6 @@
     <div class="my-6 p-4 rounded bg-gray-200 border w-1/3 text-center mx-auto">
       <h1 class="text-2xl">Localfarm - Basel Hack 2021</h1>
     </div>
-    <google-map :center="{lat: 47.5410808,lng: 7.5938071}" :markers="[{position:{lat: 47.5410808,lng: 7.5938071}, title: 'test'}]"></google-map>
     <FarmCard :farms="farms" />
   </div>
 </template>
