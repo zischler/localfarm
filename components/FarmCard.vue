@@ -53,8 +53,9 @@ export default {
     },
     methods: {
         loadLocalStorage() {
-            let storage = JSON.parse(localStorage.getItem('favorites'))
-            if(storage) {
+            if(localStorage.getItem('favorites')) {
+                let storage = JSON.parse(localStorage.getItem('favorites'))
+                console.log(storage)
                 this.favoritesList = storage
                 if(storage.includes(this.farm.id)) {
                     this.favorite = true

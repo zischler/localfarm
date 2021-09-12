@@ -1,15 +1,14 @@
 <template>
-  <div>
-    <svg-symbols />
-    <div class="max-w-5xl w-full h-full mx-auto px-4 pb-12">
-        <FarmCard v-for="farm in farms" :farm="farm" :key="farm.id" />
+    <div>
+        <svg-symbols />
+        <div class="max-w-5xl w-full h-full mx-auto px-4 pb-12">
+            <FarmCard v-for="farm in farms" :farm="farm" :key="farm.id" />
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
 // import FarmCard from '~/components/FarmCard.vue'
-
 export default {
     data() {
         return {
