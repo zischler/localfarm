@@ -2,6 +2,18 @@
 	<div v-show="!!farm.id">
 		<div class="relative">
 			<div class="max-w-5xl w-full mx-auto">
+				<a @click="back()" class="flex space-x-2 px-4 items-center my-4 hover:text-f-red transition-color duration-150">
+					<svg
+						width="30"
+						height="30"
+						viewBox="0 0 20 20"
+						preserveAspectRatio="xMinYMax"
+						class="transform rotate-180"
+					>
+						<use xlink:href="#arrow-right-cycle"></use>
+					</svg>
+					<span class="cursor-pointer">Zurück</span>
+				</a>
 				<div class="w-full max-h-96 overflow-hidden flex items-center" v-if="farm.images">
 					<img class="w-full" :src="farm.images" :alt="(farm.title) + ' image'">
 				</div>
@@ -130,6 +142,11 @@ export default {
 			console.error(error)
 		});
 		this.farm = results.find(farm => farm.id === +this.id);
+	},
+	methods: {
+		back() {
+			window.history.back();
+		}
 	}
 }
 </script>
