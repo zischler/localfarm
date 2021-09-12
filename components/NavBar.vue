@@ -1,7 +1,7 @@
 <template>
     <div class="fixed bottom-0 bg-white w-full">
         <ul class="grid grid-cols-4 gap-2 p-2 max-w-5xl mx-auto">
-            <li is="NavItem" v-for="obj,index of objs" :key="obj.text" :obj="obj" @clicked="changeToActive($event, index)"></li>
+            <li is="NavItem" v-for="obj, index of objs" :key="obj.text" :obj="obj"></li>
         </ul>
     </div>
 </template>
@@ -9,51 +9,35 @@
 <script>
 import NavItem from '~/components/NavItem.vue'
 export default {
-    components: {NavItem},
+    components: { NavItem },
     data () {
         return {
             objs: [
                 {
                     text: "Entdecken",
                     path: '/',
-                    svg: 'compass',
-                    active: true
+                    svg: 'compass'
                 },
                 {
                     text: "Karte",
                     path: '/map',
-                    svg: 'map',
-                    active: false
+                    svg: 'map'
                 },
                 {
                     text: "Favoriten",
                     path: '/favorites',
-                    svg: 'heart',
-                    active: false
+                    svg: 'heart'
                 },
                 {
                     text: "Infos",
                     path: '/info',
-                    svg: 'house',
-                    active: false
+                    svg: 'house'
                 }
             ]
         }
     },
     methods: {
-        changeToActive (event, index) {
-            let obj = this.objs[index]
-            let objs = this.objs.filter(elem => elem != obj)
-            for(let i=0; i<objs.length; i++) {
-                let objInFor = objs[i]
-                objInFor.active = false
-            }
-            if(obj.text === event){
-                obj.active = true
-            } else {
-                obj.active = false
-            }
-        }
+        
     }
 }
 </script>

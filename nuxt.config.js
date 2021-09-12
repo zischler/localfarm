@@ -21,8 +21,7 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-  ],
+  plugins: [{ src: "~/plugins/google-maps", ssr: true }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -37,15 +36,21 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
   },
 
+  //active class nuxt router / link
+  router: {
+    linkActiveClass: 'active-link text-red-500'
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: [/^vue2-google-maps($|\/)/]
   },
   env: {
     baseUrl: 'https://my.api.mockaroo.com/farms.json?key=37aa94e0'
