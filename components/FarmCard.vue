@@ -3,8 +3,8 @@
         <div class="flex-shrink-0">
             <img class="h-48 w-full object-cover" :src="farm.images" alt="">
         </div>
-        <div class="flex-1 bg-white p-6 flex flex-col justify-between">
-            <div class="flex-1">
+        <div class="bg-white p-6 flex flex-row justify-between">
+            <div class="flex flex-col">
                 <h1 class="text-xl mb-2 font-semibold text-gray-900">{{ farm.title }}</h1>
                 <p class="text-sm font-medium text-gray-500 flex mb-4">
                     <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" preserveAspectRatio="xMinYMax">
@@ -13,6 +13,11 @@
                     <span>{{ farm.city }}</span>
                 </p>
                 <p class="mt-3">{{ farm.info_text.slice(0, 120) }}...</p>
+            </div>
+            <div class="flex items-start justify-center">
+                <svg @click="saveToFavorites()" class="mx-auto fill-current stroke-current text-black" width="25" height="25" viewBox="0 0 25 25" preserveAspectRatio="xMinYMax">
+                    <use v-bind:xlink:href="'#favoriten'"></use>
+                </svg>
             </div>
         </div>
 
@@ -26,6 +31,11 @@
 
 <script>
 export default {
+    methods: {
+        saveToFavorites () {
+            localStorage.setItem('favorites', [item.id])
+        }
+    },
     props: {
         farm: Object
     }
